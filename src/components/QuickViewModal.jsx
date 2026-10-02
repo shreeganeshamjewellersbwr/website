@@ -73,6 +73,18 @@ export default function QuickViewModal({ item, onClose }) {
                   <span className="text-slate-400">Material:</span>
                   <span className="font-semibold text-white">{item.purity}</span>
                 </div>
+                {item.weight && (
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Net Weight:</span>
+                    <span className="font-semibold text-white">{item.weight}</span>
+                  </div>
+                )}
+                {item.makingCharges && (
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Making Charges:</span>
+                    <span className="font-semibold text-[#F5D77F]">{item.makingCharges}</span>
+                  </div>
+                )}
                 {item.stones && (
                   <div className="flex justify-between">
                     <span className="text-slate-400">Stones:</span>

@@ -137,13 +137,14 @@ export default function FeaturedProductsSection({ onOpenQuickView }) {
                   >
                     {product.name}
                   </h3>
-                  <p className="text-[10px] text-slate-500 mt-0.5 tracking-wider uppercase font-medium">
-                    {product.purity}
+                  <p className="text-[10px] text-slate-500 mt-0.5 tracking-wider uppercase font-medium flex items-center justify-between">
+                    <span>{product.purity}</span>
+                    {product.weight && <span className="font-semibold text-[#8F6B1E]">{product.weight}</span>}
                   </p>
                 </div>
 
                 <div className="mt-3 pt-3 border-t border-slate-100 flex items-center justify-between">
-                  <span className="font-bold text-sm sm:text-base text-[#8F6B1E] tracking-tight">
+                  <span className="font-bold text-xs sm:text-sm text-[#8F6B1E] tracking-tight">
                     {product.price}
                   </span>
                   
