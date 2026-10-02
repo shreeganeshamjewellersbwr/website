@@ -75,6 +75,23 @@ export const mainCollections = [
 
 export const featuredProducts = [
   {
+    id: "SGJ-BRC-001",
+    name: "Pure 92.5 Silver Green Stone Bracelet",
+    category: "jewellery",
+    categoryLabel: "92.5 Silver Bracelet",
+    price: "₹ 3,450",
+    rawPrice: 3450,
+    purity: "92.5% Sterling Silver",
+    weight: "14.20g",
+    stones: "Radiant Oval Green Stones & Brilliant CZ",
+    image: "/assets/images/emerald_bracelet.jpg",
+    gallery: ["/assets/images/emerald_bracelet.jpg", "/assets/images/emerald_bracelet_macro.jpg", "/assets/images/emerald_bracelet_full.jpg"],
+    tag: "Trending",
+    idealFor: "Girls & Women",
+    occasion: "Everyday Wear, Parties & Gifting",
+    description: "Exquisite tennis-style bracelet handcrafted in pure 92.5 sterling silver with sparkling green gemstones and prong-set cubic zirconia. Perfect for daily elegance, parties, and anniversary gifting."
+  },
+  {
     id: "SGJ-FP-001",
     name: "Silver Grace Necklace Set",
     category: "jewellery",
@@ -83,7 +100,7 @@ export const featuredProducts = [
     rawPrice: 6800,
     purity: "92.5% Sterling Silver",
     weight: "36.50g",
-    stones: "Fine Rhodium Polish, CZ Accents",
+    stones: "Fine Silver Polish, CZ Accents",
     image: "/assets/images/card_silver_jewellery.jpg",
     tag: "Bestseller",
     description: "Delicate royal lace pattern necklace crafted in hallmarked 925 sterling silver with matching earrings."

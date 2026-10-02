@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { X, MessageSquare, ShieldCheck, Sparkles } from 'lucide-react';
 import { storeInfo } from '../data/jewelry';
 
 export default function QuickViewModal({ item, onClose }) {
   if (!item) return null;
 
+  const [activeImage, setActiveImage] = useState(item.image);
+
   const handleWhatsApp = () => {
-    const msg = `Namaste Shree Ganesham Jewellers (Beawar),%0A%0AI am interested in viewing this piece from your collection:%0A*${item.name}* (SKU: ${item.id})%0A- Weight: ${item.weight || 'Available on request'}%0A- Purity: ${item.purity}%0A- Price: ${item.price || item.priceEstimate || 'On Inquiry'}%0A%0APlease share available designs and booking details at Osatwal Square showroom.`;
+    const msg = `Namaste Shree Ganesham Jewellers (Beawar),%0A%0AI am interested in viewing this piece from your collection:%0A*${item.name}* (SKU: ${item.id})%0A- Material: ${item.purity}%0A- Stone: ${item.stones || 'Natural Gemstones'}%0A- Price: ${item.price || item.priceEstimate || 'On Inquiry'}%0A%0APlease share available designs and booking details at Osatwal Square showroom.`;
     window.open(`https://wa.me/91${storeInfo.phone}?text=${msg}`, '_blank');
   };
 
@@ -17,7 +19,7 @@ export default function QuickViewModal({ item, onClose }) {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#12182E] text-slate-400 hover:text-white hover:bg-slate-800 border border-[#C5A059]/30 flex items-center justify-center transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 rounded-full bg-[#12182E] text-slate-400 hover:text-white hover:bg-slate-800 border border-[#C5A059]/30 flex items-center justify-center transition-colors cursor-pointer"
           aria-label="Close Modal"
         >
           <X className="w-5 h-5" />
@@ -25,13 +27,32 @@ export default function QuickViewModal({ item, onClose }) {
 
         <div className="flex flex-col md:flex-row gap-6 items-center">
           
-          {/* Product Image */}
-          <div className="w-full md:w-1/2 aspect-square rounded-xl overflow-hidden bg-black border border-[#C5A059]/30">
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-full h-full object-cover object-center"
-            />
+          {/* Product Image & Thumbnail Gallery */}
+          <div className="w-full md:w-1/2 flex flex-col gap-2.5">
+            <div className="aspect-square rounded-xl overflow-hidden bg-black border border-[#C5A059]/30">
+              <img
+                src={activeImage}
+                alt={item.name}
+                className="w-full h-full object-cover object-center transition-all duration-300"
+              />
+            </div>
+
+            {/* Thumbnail Row if Gallery Exists */}
+            {item.gallery && item.gallery.length > 1 && (
+              <div className="flex items-center gap-2">
+                {item.gallery.map((img, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImage(img)}
+                    className={`w-14 h-14 rounded-lg overflow-hidden border transition-all cursor-pointer ${
+                      activeImage === img ? 'border-[#F5D77F] ring-1 ring-[#F5D77F]' : 'border-slate-800 opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <img src={img} alt="" className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Product Info */}
@@ -40,7 +61,7 @@ export default function QuickViewModal({ item, onClose }) {
               <span className="text-[#C5A059] font-bold uppercase tracking-widest text-[10px] block mb-1">
                 {item.categoryLabel || 'Shree Ganesham Collection'}
               </span>
-              <h3 className="serif text-xl sm:text-2xl font-bold text-white leading-snug mb-2">
+              <h3 className="serif text-xl sm:text-2xl font-bold text-white leading-snug mb-1.5">
                 {item.name}
               </h3>
               <div className="serif text-xl font-bold text-[#F5D77F] mb-3">
@@ -49,19 +70,25 @@ export default function QuickViewModal({ item, onClose }) {
 
               <div className="bg-[#050711] rounded-xl p-3.5 border border-[#C5A059]/25 space-y-1.5 text-xs mb-3">
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Purity:</span>
+                  <span className="text-slate-400">Material:</span>
                   <span className="font-semibold text-white">{item.purity}</span>
                 </div>
-                {item.weight && (
-                  <div className="flex justify-between">
-                    <span className="text-slate-400">Approx. Weight:</span>
-                    <span className="font-semibold text-white">{item.weight}</span>
-                  </div>
-                )}
                 {item.stones && (
                   <div className="flex justify-between">
-                    <span className="text-slate-400">Crafting / Finish:</span>
+                    <span className="text-slate-400">Stones:</span>
                     <span className="font-semibold text-[#F5D77F] text-right max-w-[160px]">{item.stones}</span>
+                  </div>
+                )}
+                {item.idealFor && (
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Ideal For:</span>
+                    <span className="font-semibold text-white">{item.idealFor}</span>
+                  </div>
+                )}
+                {item.occasion && (
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Occasion:</span>
+                    <span className="font-semibold text-slate-200 text-right max-w-[160px]">{item.occasion}</span>
                   </div>
                 )}
               </div>
@@ -73,7 +100,7 @@ export default function QuickViewModal({ item, onClose }) {
 
             <button
               onClick={handleWhatsApp}
-              className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-900/40 transition-all flex items-center justify-center gap-2"
+              className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider shadow-lg shadow-emerald-900/40 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <MessageSquare className="w-4 h-4" />
               Inquire on WhatsApp with SGJ
