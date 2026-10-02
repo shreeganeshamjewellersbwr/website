@@ -5,9 +5,14 @@ import { featuredProducts } from '../data/jewelry';
 export default function FeaturedProductsSection({ onOpenQuickView }) {
   const [activeFilter, setActiveFilter] = useState('all');
 
-  const filteredProducts = activeFilter === 'all'
-    ? featuredProducts
-    : featuredProducts.filter((p) => p.category === activeFilter);
+  const filteredProducts = featuredProducts.filter((p) => {
+    if (activeFilter === 'all') return true;
+    if (activeFilter === 'female') return p.gender === 'female';
+    if (activeFilter === 'male') return p.gender === 'male';
+    if (activeFilter === 'silver-articles') return p.category === 'silver-articles';
+    if (activeFilter === 'gift-items') return p.category === 'gift-items';
+    return p.category === activeFilter;
+  });
 
   return (
     <section id="featured" className="w-full py-24 px-6 sm:px-10 lg:px-14 bg-[#F8F9FB] text-slate-900 border-b border-slate-200">
@@ -42,7 +47,7 @@ export default function FeaturedProductsSection({ onOpenQuickView }) {
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
             <button
               onClick={() => setActiveFilter('all')}
-              className={`px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
                 activeFilter === 'all'
                   ? 'bg-[#C5A059] text-black shadow-md shadow-[#C5A059]/30'
                   : 'bg-white text-slate-700 hover:text-black border border-slate-200 hover:border-slate-300'
@@ -51,18 +56,28 @@ export default function FeaturedProductsSection({ onOpenQuickView }) {
               ALL
             </button>
             <button
-              onClick={() => setActiveFilter('jewellery')}
-              className={`px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
-                activeFilter === 'jewellery'
+              onClick={() => setActiveFilter('female')}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
+                activeFilter === 'female'
                   ? 'bg-[#C5A059] text-black shadow-md shadow-[#C5A059]/30'
                   : 'bg-white text-slate-700 hover:text-black border border-slate-200 hover:border-slate-300'
               }`}
             >
-              JEWELLERY
+              WOMEN (FEMALE)
+            </button>
+            <button
+              onClick={() => setActiveFilter('male')}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
+                activeFilter === 'male'
+                  ? 'bg-[#C5A059] text-black shadow-md shadow-[#C5A059]/30'
+                  : 'bg-white text-slate-700 hover:text-black border border-slate-200 hover:border-slate-300'
+              }`}
+            >
+              MEN (MALE)
             </button>
             <button
               onClick={() => setActiveFilter('silver-articles')}
-              className={`px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
                 activeFilter === 'silver-articles'
                   ? 'bg-[#C5A059] text-black shadow-md shadow-[#C5A059]/30'
                   : 'bg-white text-slate-700 hover:text-black border border-slate-200 hover:border-slate-300'
@@ -72,7 +87,7 @@ export default function FeaturedProductsSection({ onOpenQuickView }) {
             </button>
             <button
               onClick={() => setActiveFilter('gift-items')}
-              className={`px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase transition-all cursor-pointer ${
                 activeFilter === 'gift-items'
                   ? 'bg-[#C5A059] text-black shadow-md shadow-[#C5A059]/30'
                   : 'bg-white text-slate-700 hover:text-black border border-slate-200 hover:border-slate-300'
