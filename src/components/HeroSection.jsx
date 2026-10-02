@@ -62,7 +62,7 @@ export default function HeroSection({ onSelectCategory }) {
 
           {/* Subtitle Description */}
           <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-lg mb-8 font-light drop-shadow">
-            Discover our exquisite collection of 92.5 silver jewellery, pure silver articles, anti-tarnish jewellery and premium gift items in Beawar.
+            Discover our exquisite collection of 92.5 silver jewellery, pure silver articles, and premium royal gift items in Beawar.
           </p>
 
           {/* Action Buttons */}
@@ -148,10 +148,10 @@ export default function HeroSection({ onSelectCategory }) {
               </div>
               <div className="flex flex-col">
                 <span className="text-[11px] font-bold tracking-[1.5px] uppercase text-white group-hover:text-[#F5D77F] transition-colors">
-                  ANTI-TARNISH
+                  BIS HALLMARKED
                 </span>
                 <span className="text-[9px] text-[#C5A059] tracking-wider uppercase">
-                  POLISHED
+                  100% CERTIFIED
                 </span>
               </div>
             </div>

@@ -24,7 +24,7 @@ export const heroSlides = [
     id: "slide-1",
     tagline: "CRAFTED WITH PURITY, DESIGNED FOR YOU",
     title: "Timeless Elegance",
-    subtitle: "Discover our exquisite collection of 92.5 silver jewellery, pure silver articles, anti-tarnish jewellery and premium gift items.",
+    subtitle: "Discover our exquisite collection of 92.5 silver jewellery, pure silver articles, and premium gift items in Beawar.",
     bgImage: "/assets/images/hero_dark_still_life.jpg",
     theme: "dark"
   },
@@ -52,7 +52,7 @@ export const mainCollections = [
     title: "92.5 Silver Jewellery",
     category: "jewellery",
     image: "/assets/images/card_silver_jewellery.jpg",
-    tagline: "Rhodium Polished • Anti-Tarnish",
+    tagline: "92.5 Hallmarked • Royal Finish",
     description: "Opulent hallmarked 92.5 sterling silver necklaces, royal chokers, bangles, and bridal sets."
   },
   {

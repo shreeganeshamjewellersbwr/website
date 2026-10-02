@@ -6,6 +6,8 @@ import {
   Clock, 
   ArrowUp, 
   Sparkles,
+  ShieldCheck,
+  MessageCircle,
   ExternalLink 
 } from 'lucide-react';
 import { storeInfo } from '../data/jewelry';
@@ -16,36 +18,70 @@ export default function Footer({ onSelectCategory }) {
   };
 
   return (
-    <footer className="w-full bg-[#020306] text-slate-400 border-t border-slate-900">
+    <footer className="w-full bg-[#020306] text-slate-400 border-t border-[#C5A059]/20 relative overflow-hidden">
       
-      {/* Main Footer Container */}
+      {/* Top Showroom Callout Banner */}
+      <div className="border-b border-slate-900 bg-gradient-to-r from-[#090D1C] via-[#12182E] to-[#090D1C] py-8 px-6 sm:px-10 lg:px-14">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left">
+            <div className="flex items-center justify-center md:justify-start gap-2 text-[#F5D77F] text-xs font-bold tracking-[3px] uppercase mb-1">
+              <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
+              <span>VISIT OUR BEAWAR SHOWROOM</span>
+            </div>
+            <p className="text-white text-base sm:text-lg font-serif">
+              Experience the radiance of pure 92.5 silver & authentic Rajasthani karigari in person.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-3 flex-shrink-0">
+            <a
+              href={`tel:${storeInfo.phone}`}
+              className="px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase bg-[#C5A059] hover:bg-[#F5D77F] text-black shadow-lg transition-all flex items-center gap-2"
+            >
+              <Phone className="w-3.5 h-3.5" />
+              <span>Call Showroom</span>
+            </a>
+            <a
+              href={storeInfo.mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase border border-[#C5A059]/60 hover:border-[#F5D77F] text-[#F5D77F] hover:bg-[#C5A059]/10 transition-all flex items-center gap-2"
+            >
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Get Directions</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Footer Body Container */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           
-          {/* Col 1: Brand & Bio (lg:col-span-4) */}
+          {/* Col 1: Brand & Heritage (lg:col-span-4) */}
           <div className="lg:col-span-4 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-3.5 mb-4">
-                <div className="w-12 h-12 rounded-full p-0.5 bg-black border border-[#C5A059]/70 flex items-center justify-center shadow-lg overflow-hidden">
-                  <img src="/assets/logo.png" alt="SJ Logo" className="w-full h-full object-cover" />
+              <div className="flex items-center gap-3.5 mb-5">
+                <div className="w-12 h-12 rounded-full p-0.5 bg-black border border-[#C5A059]/70 flex items-center justify-center shadow-xl overflow-hidden flex-shrink-0">
+                  <img src="/assets/logo.png" alt="SJ Monogram" className="w-full h-full object-cover" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="serif text-base sm:text-lg font-bold tracking-[2px] text-[#F5D77F] leading-tight">
+                  <span className="serif text-lg sm:text-xl font-bold tracking-[2.5px] text-[#F5D77F] leading-tight">
                     SHREE GANESHAM
                   </span>
-                  <span className="text-[9px] tracking-[4px] text-[#C5A059] font-medium uppercase">
-                    JEWELLERS
+                  <span className="text-[10px] tracking-[4px] text-[#C5A059] font-semibold uppercase">
+                    JEWELLERS • BEAWAR
                   </span>
                 </div>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-light mb-6 max-w-sm">
-                Exquisite 92.5 silver jewellery, pure silver articles and premium gift items, crafted with purity and designed for you.
+                A symbol of sacred trust and heirloom craftsmanship in Beawar. Specializing in certified 92.5 Sterling Silver jewellery, pure 999 silver articles, and royal gifting collections.
               </p>
             </div>
 
             {/* Social Icons */}
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 pt-2">
               <a
                 href={storeInfo.instagramUrl}
                 target="_blank"
@@ -91,12 +127,81 @@ export default function Footer({ onSelectCategory }) {
             </div>
           </div>
 
-          {/* Col 2: Quick Links (lg:col-span-2) */}
-          <div className="lg:col-span-2">
-            <h4 className="serif text-xs font-bold tracking-[2.5px] uppercase text-[#F5D77F] mb-5">
-              Quick Links
+          {/* Col 2: Signature Collections (lg:col-span-3) */}
+          <div className="lg:col-span-3">
+            <h4 className="serif text-xs font-bold tracking-[2.5px] uppercase text-[#F5D77F] mb-5 pb-2 border-b border-slate-900 flex items-center gap-2">
+              <span>Collections</span>
             </h4>
-            <ul className="space-y-2.5 text-xs font-medium text-slate-300">
+            <ul className="space-y-2.5 text-xs text-slate-300">
+              <li>
+                <a
+                  href="#featured"
+                  onClick={() => onSelectCategory('jewellery')}
+                  className="hover:text-[#F5D77F] transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-[#C5A059] text-[10px]">›</span>
+                  <span>92.5 Sterling Silver Jewellery</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#featured"
+                  onClick={() => onSelectCategory('jewellery')}
+                  className="hover:text-[#F5D77F] transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-[#C5A059] text-[10px]">›</span>
+                  <span>Peacock & Jhumki Earrings</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#featured"
+                  onClick={() => onSelectCategory('jewellery')}
+                  className="hover:text-[#F5D77F] transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-[#C5A059] text-[10px]">›</span>
+                  <span>Antique Filigree Bangles</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#featured"
+                  onClick={() => onSelectCategory('silver-articles')}
+                  className="hover:text-[#F5D77F] transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-[#C5A059] text-[10px]">›</span>
+                  <span>Pure 999 Silver Puja Thalis</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#featured"
+                  onClick={() => onSelectCategory('silver-articles')}
+                  className="hover:text-[#F5D77F] transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-[#C5A059] text-[10px]">›</span>
+                  <span>Solid Silver Ganesh-Lakshmi Idols</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#featured"
+                  onClick={() => onSelectCategory('gift-items')}
+                  className="hover:text-[#F5D77F] transition-colors flex items-center gap-1.5"
+                >
+                  <span className="text-[#C5A059] text-[10px]">›</span>
+                  <span>Royal Silver Gift Sets & Coins</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Navigation Links (lg:col-span-2) */}
+          <div className="lg:col-span-2">
+            <h4 className="serif text-xs font-bold tracking-[2.5px] uppercase text-[#F5D77F] mb-5 pb-2 border-b border-slate-900 flex items-center gap-2">
+              <span>Quick Links</span>
+            </h4>
+            <ul className="space-y-2.5 text-xs text-slate-300">
               <li>
                 <a href="#home" className="hover:text-[#F5D77F] transition-colors">
                   Home
@@ -108,113 +213,47 @@ export default function Footer({ onSelectCategory }) {
                   onClick={() => onSelectCategory('all')}
                   className="hover:text-[#F5D77F] transition-colors"
                 >
-                  Collections
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#collections"
-                  onClick={() => onSelectCategory('silver-articles')}
-                  className="hover:text-[#F5D77F] transition-colors"
-                >
-                  Silver Articles
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#collections"
-                  onClick={() => onSelectCategory('gift-items')}
-                  className="hover:text-[#F5D77F] transition-colors"
-                >
-                  Gift Items
+                  All Collections
                 </a>
               </li>
               <li>
                 <a href="#craftsmanship" className="hover:text-[#F5D77F] transition-colors">
-                  About Us
+                  Craftsmanship
+                </a>
+              </li>
+              <li>
+                <a href="#featured" className="hover:text-[#F5D77F] transition-colors">
+                  Featured Products
                 </a>
               </li>
               <li>
                 <a href="#store" className="hover:text-[#F5D77F] transition-colors">
-                  Contact
+                  Showroom & Store
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://wa.me/91${storeInfo.phone}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1"
+                >
+                  <span>WhatsApp Inquiry</span>
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Our Collections (lg:col-span-3) */}
+          {/* Col 4: Contact Showroom (lg:col-span-3) */}
           <div className="lg:col-span-3">
-            <h4 className="serif text-xs font-bold tracking-[2.5px] uppercase text-[#F5D77F] mb-5">
-              Our Collections
-            </h4>
-            <ul className="space-y-2.5 text-xs font-medium text-slate-300">
-              <li>
-                <a
-                  href="#featured"
-                  onClick={() => onSelectCategory('jewellery')}
-                  className="hover:text-[#F5D77F] transition-colors"
-                >
-                  92.5 Silver Necklaces & Chokers
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#featured"
-                  onClick={() => onSelectCategory('jewellery')}
-                  className="hover:text-[#F5D77F] transition-colors"
-                >
-                  Peacock & Jhumki Earrings
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#featured"
-                  onClick={() => onSelectCategory('jewellery')}
-                  className="hover:text-[#F5D77F] transition-colors"
-                >
-                  Antique Filigree Bangles & Kadas
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#featured"
-                  onClick={() => onSelectCategory('silver-articles')}
-                  className="hover:text-[#F5D77F] transition-colors"
-                >
-                  Pure Silver Pooja Thalis & Diyas
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#featured"
-                  onClick={() => onSelectCategory('silver-articles')}
-                  className="hover:text-[#F5D77F] transition-colors"
-                >
-                  Solid Silver Ganesh & Lakshmi Idols
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#featured"
-                  onClick={() => onSelectCategory('gift-items')}
-                  className="hover:text-[#F5D77F] transition-colors"
-                >
-                  Royal Silver Gift Sets & Frames
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 4: Contact Us (lg:col-span-3) */}
-          <div className="lg:col-span-3">
-            <h4 className="serif text-xs font-bold tracking-[2.5px] uppercase text-[#F5D77F] mb-5">
-              Contact Us
+            <h4 className="serif text-xs font-bold tracking-[2.5px] uppercase text-[#F5D77F] mb-5 pb-2 border-b border-slate-900 flex items-center gap-2">
+              <span>Showroom Contact</span>
             </h4>
             <ul className="space-y-3.5 text-xs text-slate-300">
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#C5A059] flex-shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
-                  Near Rathi Ji Ki Haweli, Sanatan School Marg, Beawar (Raj.)
+                  Near Rathi Ji Ki Haweli, Sanatan School Marg, Charkhi Gali, Osatwal Square, Beawar (Raj.) 305901
                 </span>
               </li>
               <li className="flex items-center gap-2.5">
@@ -223,7 +262,7 @@ export default function Footer({ onSelectCategory }) {
                   href={`tel:${storeInfo.phone}`}
                   className="text-[#F5D77F] font-bold hover:text-white transition-colors tracking-wider"
                 >
-                  {storeInfo.phone}
+                  +91 {storeInfo.phone}
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
@@ -236,39 +275,30 @@ export default function Footer({ onSelectCategory }) {
                 </a>
               </li>
               <li className="flex items-center gap-2.5">
-                <div className="w-4 h-4 flex items-center justify-center text-[#C5A059] flex-shrink-0">
-                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                  </svg>
-                </div>
-                <a
-                  href={storeInfo.instagramUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="hover:text-[#F5D77F] transition-colors"
-                >
-                  {storeInfo.instagram}
-                </a>
+                <Clock className="w-4 h-4 text-[#C5A059] flex-shrink-0" />
+                <span className="text-slate-300">
+                  {storeInfo.hours}
+                </span>
               </li>
             </ul>
           </div>
 
         </div>
 
-        {/* Back to top scroll button */}
-        <div className="mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+        {/* Bottom Bar: Copyright & Purity Seal */}
+        <div className="mt-14 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
             © 2026 Shree Ganesham Jewellers. All Rights Reserved.
           </div>
 
-          <div className="flex items-center gap-2 text-[#C5A059]">
-            <Sparkles className="w-3.5 h-3.5 text-[#F5D77F]" />
-            <span>Crafted with Purity, Designed for You</span>
+          <div className="flex items-center gap-2 text-[#C5A059] font-medium">
+            <ShieldCheck className="w-4 h-4 text-[#F5D77F]" />
+            <span>100% Certified 92.5 & 916 BIS Hallmarked</span>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-slate-400 hover:text-[#F5D77F] transition-colors"
+            className="px-4 py-1.5 rounded-full border border-slate-800 hover:border-[#C5A059] bg-[#060812] flex items-center gap-1.5 text-slate-300 hover:text-[#F5D77F] transition-all cursor-pointer shadow-sm"
           >
             <span>Back to top</span>
             <ArrowUp className="w-3.5 h-3.5" />

@@ -18,7 +18,7 @@ export default function AboutStudio() {
             Located in the historic heart of Beawar at <strong>Osatwal Square</strong>, Shree Ganesham Jewellers has stood as a sanctuary of authentic hallmarked gold, pristine sterling silver, and royal Rajasthani karigari.
           </p>
           <p className="text-slate-500 text-xs leading-relaxed font-light">
-            Every creation—from delicate 92.5 anti-tarnish silver jewellery and handcrafted puja thalis to grand 22K hallmarked bridal trousseaus—is crafted by generational master artisans with lifelong devotion.
+            Every creation—from delicate 92.5 sterling silver jewellery and handcrafted puja thalis to grand 22K hallmarked bridal trousseaus—is crafted by generational master artisans with lifelong devotion.
           </p>
 
           <div className="grid grid-cols-3 gap-4 pt-4 border-t border-slate-100 text-center">
@@ -31,7 +31,7 @@ export default function AboutStudio() {
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
               <Award className="w-5 h-5 text-[#C5A059] mx-auto mb-1" />
               <div className="serif text-lg font-bold text-slate-900">92.5</div>
-              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Anti-Tarnish Silver</div>
+              <div className="text-[10px] text-slate-500 uppercase tracking-wider">Sterling Silver</div>
             </div>
 
             <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">

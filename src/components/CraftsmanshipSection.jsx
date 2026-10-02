@@ -66,7 +66,7 @@ export default function CraftsmanshipSection() {
                   <span className="text-[#F5D77F]">✓</span> 100% 92.5 Sterling Silver
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[#F5D77F]">✓</span> Rhodium Anti-Tarnish
+                  <span className="text-[#F5D77F]">✓</span> 100% Certified Hallmarked
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-[#F5D77F]">✓</span> Pure 999 Pooja Articles
