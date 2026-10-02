@@ -8,8 +8,8 @@ import CraftsmanshipSection from './components/CraftsmanshipSection';
 import FeaturedProductsSection from './components/FeaturedProductsSection';
 import PriceCalculator from './components/PriceCalculator';
 import VisitStoreSection from './components/VisitStoreSection';
-import TestimonialsSection from './components/TestimonialsSection';
 import StoryPillarsSection from './components/StoryPillarsSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import Footer from './components/Footer';
 import QuickViewModal from './components/QuickViewModal';
 import { storeInfo } from './data/jewelry';
@@ -32,32 +32,32 @@ export default function App() {
       {/* 1. Brand Navbar with SJ Monogram Logo */}
       <Navbar onSelectCategory={handleSelectCategory} />
 
-      {/* 2. Dark Luxury Hero Section (Matching Uploaded Mockup) */}
+      {/* 2. Dark Luxury Hero Section (Segment 1: Dark) */}
       <HeroSection onSelectCategory={handleSelectCategory} />
 
       {/* 3. Live Bullion Ticker (24K Gold, 22K Gold, 999 Silver) */}
       <LiveBullionTicker />
 
-      {/* 4. Our Collections (3 Signature Large Cards) */}
+      {/* 4. Our Collections (Segment 2: Clean White) */}
       <OurCollectionsSection onSelectCategory={handleSelectCategory} />
 
-      {/* 5. Fine Craftsmanship (Handcrafted With Devotion Spotlight) */}
+      {/* 5. Fine Craftsmanship (Segment 3: Dark Luxury) */}
       <CraftsmanshipSection />
 
-      {/* 6. Featured Products (5-Product Catalog Grid with Tab Filters) */}
+      {/* 6. Featured Products (Segment 4: Clean White) */}
       <FeaturedProductsSection onOpenQuickView={setQuickViewItem} />
 
-      {/* 7. Interactive Gold & Silver Price Calculator */}
+      {/* 7. Interactive Gold & Silver Price Calculator (Segment 5A: Dark Luxury) */}
       <PriceCalculator />
 
-      {/* 8. Visit Our Store: A Heritage In Beawar */}
+      {/* 8. Visit Our Store: A Heritage In Beawar (Segment 5B: Dark Luxury) */}
       <VisitStoreSection />
 
-      {/* 9. What Our Customers Say (Testimonials) */}
-      <TestimonialsSection />
-
-      {/* 10. 3 Visual Story Pillars */}
+      {/* 9. 3 Visual Story Pillars (Segment 6: Clean White - Moved above Testimonials) */}
       <StoryPillarsSection onSelectCategory={handleSelectCategory} />
+
+      {/* 10. What Our Customers Say (Segment 7: Dark Luxury) */}
+      <TestimonialsSection />
 
       {/* 11. Luxury 4-Column Footer */}
       <Footer onSelectCategory={handleSelectCategory} />

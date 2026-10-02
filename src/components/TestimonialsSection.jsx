@@ -4,32 +4,29 @@ import { testimonials } from '../data/jewelry';
 
 export default function TestimonialsSection() {
   return (
-    <section className="w-full py-24 px-6 sm:px-10 lg:px-14 bg-[#FFFFFF] text-slate-900 border-b border-slate-200 relative overflow-hidden">
+    <section className="w-full py-24 px-6 sm:px-10 lg:px-14 bg-[#060812] text-slate-100 border-b border-slate-900 relative overflow-hidden">
       
-      {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#C5A059_0.5px,transparent_0.5px)] [background-size:24px_24px] opacity-10 pointer-events-none"></div>
-
       <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-xl mx-auto mb-16">
-          <div className="flex items-center justify-center gap-2 text-[#8F6B1E] text-xs font-bold tracking-[4px] uppercase mb-2">
-            <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
-            <span>HEIRLOOM TESTIMONIALS</span>
-            <Sparkles className="w-3.5 h-3.5 text-[#C5A059]" />
+          <div className="flex items-center justify-center gap-2 text-[#C5A059] text-xs font-bold tracking-[4px] uppercase mb-2">
+            <Sparkles className="w-3.5 h-3.5 text-[#F5D77F]" />
+            <span>VOICES OF TRUST</span>
+            <Sparkles className="w-3.5 h-3.5 text-[#F5D77F]" />
           </div>
 
-          <h2 className="serif text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 tracking-tight">
+          <h2 className="serif text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 tracking-tight">
             What Our Customers Say
           </h2>
 
           <div className="flex items-center justify-center gap-3 my-3">
-            <div className="h-[1px] w-14 bg-gradient-to-r from-transparent to-[#C5A059]"></div>
-            <span className="text-[#C5A059] text-xs">❖</span>
-            <div className="h-[1px] w-14 bg-gradient-to-l from-transparent to-[#C5A059]"></div>
+            <div className="h-[1px] w-14 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent"></div>
+            <span className="text-[#F5D77F] text-xs">❖</span>
+            <div className="h-[1px] w-14 bg-gradient-to-r from-transparent via-[#C5A059] to-transparent"></div>
           </div>
 
-          <p className="text-slate-600 text-sm sm:text-base italic font-serif">
+          <p className="text-slate-400 text-sm sm:text-base italic font-serif">
             A curated selection of our generations of trusted patrons
           </p>
         </div>
@@ -39,35 +36,35 @@ export default function TestimonialsSection() {
           {testimonials.map((item) => (
             <div
               key={item.id}
-              className="bg-white border border-slate-200 hover:border-[#C5A059] rounded-2xl p-8 flex flex-col justify-between shadow-md hover:shadow-xl hover:shadow-[#C5A059]/10 transition-all duration-300 hover:-translate-y-1.5"
+              className="bg-[#0A0E21] border border-[#C5A059]/30 hover:border-[#F5D77F] rounded-2xl p-8 flex flex-col justify-between shadow-xl hover:shadow-2xl hover:shadow-[#C5A059]/15 transition-all duration-300 hover:-translate-y-1.5"
             >
               <div>
                 {/* Quote Icon */}
                 <div className="mb-4">
-                  <Quote className="w-8 h-8 fill-[#C5A059]/20 text-[#C5A059]" />
+                  <Quote className="w-8 h-8 fill-[#C5A059]/20 text-[#F5D77F]" />
                 </div>
 
                 {/* Review Text */}
-                <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-light italic mb-6">
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light italic mb-6">
                   "{item.quote}"
                 </p>
               </div>
 
               {/* Stars & Author */}
-              <div className="pt-5 border-t border-slate-100 flex items-center justify-between">
+              <div className="pt-5 border-t border-slate-800 flex items-center justify-between">
                 <div>
-                  <h4 className="serif text-sm font-bold text-slate-900 tracking-wide">
+                  <h4 className="serif text-sm font-bold text-white tracking-wide">
                     {item.author}
                   </h4>
-                  <span className="text-[10px] text-[#8F6B1E] tracking-wider uppercase font-bold">
+                  <span className="text-[10px] text-[#C5A059] tracking-wider uppercase font-bold">
                     Verified Patron • {item.city}
                   </span>
                 </div>
 
                 {/* 5 Golden Stars */}
-                <div className="flex items-center gap-1 text-[#C5A059]">
+                <div className="flex items-center gap-1 text-[#F5D77F]">
                   {[...Array(item.rating)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-[#C5A059]" />
+                    <Star key={i} className="w-3.5 h-3.5 fill-[#F5D77F]" />
                   ))}
                 </div>
               </div>
