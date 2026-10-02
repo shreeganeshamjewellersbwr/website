@@ -91,6 +91,12 @@ export default function QuickViewModal({ item, onClose }) {
                     <span className="font-semibold text-[#F5D77F] text-right max-w-[160px]">{item.stones}</span>
                   </div>
                 )}
+                {item.finish && (
+                  <div className="flex justify-between">
+                    <span className="text-slate-400">Finish:</span>
+                    <span className="font-semibold text-white">{item.finish}</span>
+                  </div>
+                )}
                 {item.idealFor && (
                   <div className="flex justify-between">
                     <span className="text-slate-400">Ideal For:</span>

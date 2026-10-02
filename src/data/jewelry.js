@@ -75,6 +75,29 @@ export const mainCollections = [
 
 export const featuredProducts = [
   {
+    id: "SGJ-BRC-002",
+    name: "925 Sterling Silver Infinity Link Bracelet",
+    category: "jewellery",
+    subcategory: "bracelets",
+    gender: "female",
+    categoryLabel: "92.5 Women's CZ Bracelet",
+    price: "Silver + ₹ 260 Making",
+    priceSubtext: "Net Wt: 8.700g",
+    rawPrice: 3200,
+    purity: "92.5% Sterling Silver",
+    weight: "8.700g Net Weight",
+    netWeight: "8.700g",
+    makingCharges: "₹ 260 Making",
+    stones: "Prong-Set Cubic Zirconia (CZ)",
+    finish: "High-Polish Silver ✨",
+    image: "/assets/images/infinity_bracelet.jpg",
+    gallery: ["/assets/images/infinity_bracelet.jpg", "/assets/images/infinity_bracelet_macro.jpg", "/assets/images/infinity_bracelet_full.jpg", "/assets/images/infinity_bracelet_model.jpg"],
+    tag: "New Arrival",
+    idealFor: "Girls & Women",
+    occasion: "Daily Wear • Party • Gifting",
+    description: "Elegant handcrafted infinity loop link bracelet in pure 92.5% sterling silver, adorned with sparkling brilliant-cut cubic zirconia and a secure lobster lock. Net Weight: 8.700g, priced transparently at Live Silver Rate + ₹260 Making Charges."
+  },
+  {
     id: "SGJ-BRC-001",
     name: "Pure 92.5 Silver Green Stone Bracelet",
     category: "jewellery",
